@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Calibri, Helvetica, sans-serif;
+      background-image: url('https://w0.peakpx.com/wallpaper/702/688/HD-wallpaper-ice-cream-background-beautiful-best-available-for-ice-cream.jpg');
+      background-color: rgba(0, 0, 0, 0.25);
+      background-repeat: no-repeat;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .cont1 {
+      padding: 50px;
+      color: #03072C;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 5px;
+      width: 400px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    textarea {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.8);
+      color: black;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus,
+    textarea:focus {
+      outline: none;
+      background-color: rgba(255, 255, 255, 1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: white;
+    }
+
+    .registerbtn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 16px 20px;
+      margin-bottom: 10px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .registerbtn:hover {
+      opacity: 0.8;
+    }
+
+    .signup-link {
+      color: white;
+      text-align: center;
+    }
+
+    footer {
+      background-color: rgb(128, 128, 128);
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+
+ <script>
+    function validateForm() {
+      var name = document.forms["registrationForm"]["sname"].value;
+      var phone = document.forms["registrationForm"]["phno"].value;
+      var email = document.forms["registrationForm"]["email"].value;
+      var password = document.forms["registrationForm"]["password"].value;
+      var cpassword = document.forms["registrationForm"]["cpassword"].value;
+
+      // Validate name
+      if (name.trim() === "") {
+        alert("Please enter your name");
+        return false;
+      }
+
+      // Validate phone number
+      if (phone.trim() === "" || phone.length !== 10 || isNaN(phone)) {
+        alert("Please enter a valid 10-digit phone number");
+        return false;
+      }
+
+      // Validate email format
+      var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        alert("Invalid email address");
+        return false;
+      }
+
+      // Validate password length
+      if (password.length < 6) {
+        alert("Password must be at least 6 characters long");
+        return false;
+      }
+
+      // Password match check
+      if (password !== cpassword) {
+        alert("Passwords do not match");
+        return false;
+      }
+
+      // If all validations pass, return true to submit the form
+      return true;
+    }
+  </script>
+  
+</head>
+<body>
+  <header style="background-color:rgb(128, 128, 128); text-align:left;">
+    <h1 style="color:blue;font-family: 'Bold';"><marquee>The Frozen Spoon</marquee></h1>
+  </header>
+  <div class="container">
+    <div class="cont1">
+      <form action="register.php" method="POST" onsubmit="return validateForm()" name="registrationForm">
+        <label for="name">Name</label>
+        <input type="text" name="sname" placeholder="Enter your last name">
+        <label for="phone">Phone</label>
+        <div>
+          <input type="tel" name="phno" placeholder="Phone number">
+        </div>
+        <label for="email">Email</label>
+        <input type="email" placeholder="Enter Email" name="email">
+        <label for="password">Password</label>
+        <input type="password" placeholder="Enter Password" name="password">
+        <label for="psw-repeat">Re-type Password</label>
+        <input type="password" placeholder="Retype Password" name="cpassword">
+        <input type="submit" value="Sign Up" class="registerbtn">
+      </form>
+      <div class="signup-link">
+        <p>Already have an account? <a href="login.html">Login here</a></p>
+      </div>
+    </div>
+  </div>
+  <footer>
+    copy right @ praneeth
+  </footer>
+</body>
+</html>

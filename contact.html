@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delivery - Ice Cream Paradise</title>
+    <link rel="stylesheet" href="1.css">
+</head>
+<body>
+
+    <header class="container">
+        <!-- ... (Header code) ... -->
+    </header>
+
+    <main id="delivery" class="main">
+        <section class="section section-delivery container">
+            <h2 class="section-title">Delivery Information</h2>
+            <p>Fill out the form below to provide your delivery details:</p>
+
+            <form class="delivery-form" action="contact.jsp">
+                <div class="form-control">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" id="name"  name="name" class="normal-input" required>
+                </div>
+
+                <div class="form-control">
+                    <label for="address" class="form-label">Delivery Address</label>
+                    <input type="text" name="addr" id="address" class="textarea-input" required></textarea>
+                </div>
+
+                <div class="form-control">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input type="tel" id="phone"  name="phno" class="normal-input" required>
+                </div>
+
+                <button type="submit" class="send-order-btn button btn-primary">Submit Order</button>
+            </form>
+        </section>
+    </main>
+
+    <footer id="contact" class="footer container">
+        <!-- ... (Footer code) ... -->
+    </footer>
+
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <script src="script.js"></script>
+</body>
+</html>

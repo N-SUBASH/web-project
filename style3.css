@@ -1,0 +1,154 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Header Styles */
+header {
+    background-color: #ffcc00;
+    color: #fff;
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: #fff;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+.nav-items {
+    list-style: none;
+    display: flex;
+}
+
+.nav-item {
+    margin-right: 20px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+    color: #333;
+}
+
+.social-links ul {
+    display: flex;
+    align-items: center;
+}
+
+.social-links li {
+    margin-right: 10px;
+}
+
+.theme-togglers {
+    display: flex;
+    align-items: center;
+}
+
+.theme-toggler {
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.menu-togglers {
+    display: none;
+    cursor: pointer;
+}
+
+/* Hero Section Styles */
+.main {
+    padding: 20px 0;
+}
+
+.section-one {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.hook-container {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hook-title {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.hook-sub_title {
+    margin-top: 20px;
+    color: #666;
+}
+
+.hero-btns-container {
+    margin-top: 30px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #333;
+    color: #fff;
+}
+
+.btn-second-alt {
+    background-color: #ffcc00;
+    color: #333;
+    margin-left: 10px;
+}
+
+.btn-primary:hover, .btn-second-alt:hover {
+    background-color: #666;
+}
+
+.in-btn-icon {
+    margin-right: 5px;
+}
+
+.hand-hole-cake-img,
+.hero-lady-img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+/* Footer Styles */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}

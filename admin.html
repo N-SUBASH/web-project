@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin - Order List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: lightgray;
+        }
+        .container {
+            background-color: white;
+            width: 60%;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .btn {
+            background-color: red;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .btn:hover {
+            background-color: darkred;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Panel - Orders</h1>
+        <table id="adminOrderTable">
+            <tr>
+                <th>Customer Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Item</th>
+                <th>Price</th>
+                <th>Instructions</th>
+            </tr>
+        </table>
+        <button class="btn" onclick="clearOrders()">Clear All Orders</button>
+    </div>
+
+    <script>
+        function loadOrders() {
+            let orders = JSON.parse(localStorage.getItem('adminOrders')) || [];
+            let table = document.getElementById("adminOrderTable");
+
+            if (orders.length === 0) {
+                let row = table.insertRow();
+                let cell = row.insertCell(0);
+                cell.colSpan = 6;
+                cell.innerText = "No orders placed yet.";
+                return;
+            }
+
+            orders.forEach(order => {
+                let row = table.insertRow();
+                row.insertCell(0).innerText = order.name;
+                row.insertCell(1).innerText = order.address;
+                row.insertCell(2).innerText = order.phone;
+                row.insertCell(3).innerText = order.item;
+                row.insertCell(4).innerText =  + order.price;
+                row.insertCell(5).innerText = order.instructions || "N/A";
+            });
+        }
+
+        function clearOrders() {
+            if (confirm("Are you sure you want to delete all orders?")) {
+                localStorage.removeItem('adminOrders');
+                location.reload();
+            }
+        }
+
+        window.onload = loadOrders;
+    </script>
+</body>
+</html>

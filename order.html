@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Place Order</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: yellow;
+        }
+        .container {
+            background-color: white;
+            width: 50%;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        input, textarea {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Order Summary</h1>
+        <table id="orderTable">
+            <tr>
+                <th>Item Name</th>
+                <th>Price</th>
+            </tr>
+        </table>
+
+        <h2>Enter Your Details</h2>
+        <form id="orderForm">
+            <input type="text" id="name" placeholder="Enter Your Name" required><br>
+            <input type="text" id="address" placeholder="Enter Your Address" required><br>
+            <input type="text" id="phone" placeholder="Enter Your Phone Number" required><br>
+            <textarea id="instructions" placeholder="Special Instructions (Optional)"></textarea><br>
+            <button type="submit" class="btn">Place Order</button>
+        </form>
+    </div>
+
+    <script>
+        function loadOrderSummary() {
+            let order = JSON.parse(localStorage.getItem('orderedProduct')) || []; 
+            let table = document.getElementById("orderTable");
+
+            if (order.length === 0) {
+                let row = table.insertRow();
+                let cell = row.insertCell(0);
+                cell.colSpan = 2;
+                cell.innerText = "No items in order.";
+                return;
+            }
+
+            order.forEach(item => {
+                let row = table.insertRow();
+                row.insertCell(0).innerText = item.name;
+                row.insertCell(1).innerText =  + item.price;
+            });
+        }
+
+        document.getElementById('orderForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            let order = JSON.parse(localStorage.getItem('orderedProduct')) || [];
+            let name = document.getElementById('name').value;
+            let address = document.getElementById('address').value;
+            let phone = document.getElementById('phone').value;
+            let instructions = document.getElementById('instructions').value;
+
+            let adminOrders = JSON.parse(localStorage.getItem('adminOrders')) || [];
+
+            order.forEach(item => {
+                adminOrders.push({
+                    name: name,
+                    address: address,
+                    phone: phone,
+                    item: item.name,
+                    price: item.price,
+                    instructions: instructions
+                });
+            });
+
+            localStorage.setItem('adminOrders', JSON.stringify(adminOrders));
+
+            alert("Order placed successfully!");
+            localStorage.removeItem('orderedProduct'); // Clear ordered product after submission
+            window.location.href = 'home.php';
+        });
+        function orderNow(name, price) {
+    let order = JSON.parse(localStorage.getItem('orderedProduct')) || [];
+    order.push({ name, price });
+    localStorage.setItem('orderedProduct', JSON.stringify(order));
+    alert(`${name} added to order!`);
+    window.location.href = 'order.html';
+}
+
+
+        window.onload = loadOrderSummary;
+    </script>
+</body>
+</html>

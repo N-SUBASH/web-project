@@ -1,0 +1,59 @@
+/* style12.css */
+
+/* Header Styles */
+header {
+    background-color: rgb(128, 128, 128);
+    text-align: center;
+    padding: 20px 0;
+}
+
+header h1 {
+    color: blue;
+}
+
+.navbar {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.navbar li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.navbar li a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Main Content Styles */
+.container {
+    background-image: url('https://images.pexels.com/photos/1362534/pexels-photo-1362534.jpeg?cs=srgb&dl=pexels-teejay-1362534.jpg&fm=jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    min-height: calc(100vh - 160px); /* Adjusted to exclude header and footer */
+    position: relative;
+    color: white;
+}
+
+.message-container {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: auto;
+}
+
+/* Footer Styles */
+footer {
+    width: 100%;
+    background-color: rgb(128, 128, 128);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+}

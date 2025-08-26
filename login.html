@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function validateLoginForm() {
+            var email = document.forms["login"]["email"].value;
+            var password = document.forms["login"]["password"].value;
+
+            // Validate if email field is empty
+            if (email.trim() === "") {
+                alert("Please enter your email address");
+                return false;
+            }
+
+            // Validate if password field is empty
+            if (password.trim() === "") {
+                alert("Please enter your password");
+                return false;
+            }
+
+            // Validate email format
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert("Invalid email address");
+                return false;
+            }
+
+            // Validate password length
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long");
+                return false;
+            }
+
+            // If all validations pass, return true to submit the form
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <header style="background-color: gray; text-align: left;">
+        
+        <h1 style="color: blue; font-family: 'Bold';">
+            The Frozen Spoon
+        </h1>
+        <h2 style="color: green; font-family: 'Times New Roman';">
+            "Register and start enjoying Yourself"
+        </h2>
+        <nav align="right">
+            <a href="home.html" align="center">Home</a>
+        </nav>
+        
+    </header>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form name="login" method="post" action="login.php" onSubmit="return validateLoginForm()">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="email"  name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+        
+    </div>
+    <h3 align="center" style="color:black;">Dont't you have an account?<a href="register.html">Register</a></h3>
+
+    <footer align="center">
+        Copy Right @ praneeth
+    </footer>
+</body>
+</html>

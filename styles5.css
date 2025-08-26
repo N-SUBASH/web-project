@@ -1,0 +1,54 @@
+/* styles1.css */
+
+/* Reset default styles */
+body, h1, h2, h3, p, ul, li, nav {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('sudha.webp');
+    background-size: cover;
+}
+
+/* Header Styles */
+header {
+    background-color: gray;
+    color: white;
+    padding: 20px;
+    text-align: left;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    margin-right: 10px;
+}
+
+/* Main Content Styles */
+.middle {
+    height: 400px; /* Adjust height as needed */
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
+}
+
+/* Footer Styles */
+footer {
+    background-color: rgb(128, 128, 128);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}

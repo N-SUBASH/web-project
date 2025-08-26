@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .card {
+            background-color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        body {
+            background-color: yellow;
+        }
+        h1 {
+            font-size: 50px;
+            color: blue;
+            text-align: center;
+        }
+        p {
+            font-size: 25px;
+        }
+        img.round-corners {
+            border-radius: 25px;
+        }
+        .zoom {
+            transition: transform .2s;
+            width: 230px;
+            height: auto;
+            margin: 20px;
+            display: inline-block;
+            text-align: center;
+        }
+        .zoom img {
+            width: 230px;
+            height: 180px;
+        }
+        .zoom button {
+            display: block;
+            margin: 10px auto;
+        }
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .message1, .message2 {
+            font-size: 18px;
+            background-color: white;
+            border: none;
+            padding: 5px;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1><i>The Frozen Spoon PRODUCTS</i></h1>
+        
+        <div class="product-container">
+            <div class="zoom">
+                <img src="image1.jpg">
+                <p>Round Ice Cream - 140</p>
+                <button onclick="addToCart('Round Ice Cream', 140)">Add to Cart</button>
+                <button onclick="orderNow('Round Ice Cream', 140)">Order Now</button>
+            </div>
+            
+            <div class="zoom">
+                <img src="image2.jpg">
+                <p>Sundae Ice Cream - 150</p>
+                <button onclick="addToCart('Sundae Ice Cream', 150)">Add to Cart</button>
+                <button onclick="orderNow('Sundae Ice Cream', 150)">Order Now</button>
+            </div>
+            
+            <div class="zoom">
+                <img src="image3.jpg">
+                <p>Rasmalai Ice Cream - 200</p>
+                <button onclick="addToCart('Rasmalai Ice Cream', 200)">Add to Cart</button>
+                <button onclick="orderNow('Rasmalai Ice Cream', 200)">Order Now</button>
+            </div>
+            
+            <div class="zoom">
+                <img src="image4.jpg">
+                <p>Chocolate Ice Cream - 150</p>
+                <button onclick="addToCart('Chocolate Ice Cream', 150)">Add to Cart</button>
+                <button onclick="orderNow('Chocolate Ice Cream', 150)">Order Now</button>
+            </div>
+            
+            <div class="zoom">
+                <img src="image6.jpg">
+                <p>Milk Way Ice Cream - 100</p>
+                <button onclick="addToCart('Milk Way Ice Cream', 100)">Add to Cart</button>
+                <button onclick="orderNow('Milk Way Ice Cream', 100)">Order Now</button>
+            </div>
+            
+            <div class="zoom">
+                <img src="image5.jpg">
+                <p>Special Ice Cream - 220</p>
+                <button onclick="addToCart('Special Ice Cream', 220)">Add to Cart</button>
+                <button onclick="orderNow('Special Ice Cream', 220)">Order Now</button>
+            </div>
+            
+            <div class="zoom">
+                <img src="image7.jpg">
+                <p>Cake Ice Cream - 180</p>
+                <button onclick="addToCart('Cake Ice Cream', 180)">Add to Cart</button>
+                <button onclick="orderNow('Cake Ice Cream', 180)">Order Now</button>
+            </div>
+            
+            <div class="zoom">
+                <img src="image8.jpg">
+                <p>Scoops of Ice Cream - 130</p>
+                <button onclick="addToCart('Scoops of Ice Cream', 130)">Add to Cart</button>
+                <button onclick="orderNow('Scoops of Ice Cream', 130)">Order Now</button>
+            </div>
+        </div>
+        
+        <div>
+            <button class="message1"><a href="order.html" style="text-decoration:none; color:black;"><i>Order Form</i></a></button>
+            <button class="message2"><a href="cart.html" style="text-decoration:none; color:black;"><i>View Cart</i></a></button>
+        </div>
+        
+        <div class="navigation">
+            <div class="back"><a href="page1.html" style="text-decoration:none;"><p>Back</p></a></div>
+            <div class="next"><a href="page2.html" style="text-decoration:none;"><p>Next</p></a></div>
+        </div>
+    </div>
+
+    <script>
+        // Function to add items to the cart
+        function addToCart(name, price) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ name, price });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${name} added to cart!`);
+        }
+
+        // Function to handle immediate ordering
+        function orderNow(name, price) {
+            let order = JSON.parse(localStorage.getItem('order')) || [];
+            order.push({ name, price });
+            localStorage.setItem('order', JSON.stringify(order));
+            alert(`${name} added to order!`);
+            window.location.href = 'order.html';
+        }
+    </script>
+</body>
+</html>
